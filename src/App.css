@@ -1,0 +1,274 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%
+}
+
+body {
+  background: rgb(3, 0, 31);
+  color: white;
+  font-family: 'Poppins', san-serif;
+}
+
+.App{
+  min-height: 100vh;
+  display: flex;
+  
+  /* Below is newly added to make the left side bar flexible */
+  flex-direction: row; 
+}
+
+.App.sideBar {
+  /* The lines below is making the sidebar not flexible*/
+  /* position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  flex: 3;
+  border-right: 1px solid rgb(100, 100, 100); */
+  
+  /* Below is newly added to make the left side bar flexible */
+  flex: 0 0 20%; /* start off at 20% of the parent container's width */
+  max-width: 300px; /* max-width to ensure it doesn't get too big */
+  min-width: 250px; /* min-width to ensure it doesn't get too small */
+  border-right: 1px solid rgb(100, 100, 100);
+  overflow-y: auto; /* If you have more content, it will be scrollable */
+  padding: 2.5rem 1rem; /* Adjust padding as necessary */
+  box-sizing: border-box; /* Include padding in the element's total width */
+}
+
+
+.main {
+  overflow-y: auto;
+  flex: 9;
+}
+
+.logo {
+  margin-right: 1rem;
+}
+
+.brand {
+  font-size: 2rem;
+}
+
+.upperSide {
+  /* The lines below is making the sidebar not flexible*/
+  /* position: fixed;
+  padding: 2.5rem;
+  border-bottom: 1px solid rgb(100, 100, 100);
+  height: 70%;
+  overflow-y: hidden; */
+
+  /* Below is newly added to make the left side bar flexible */
+  position: relative; /* Removed fixed positioning */
+  height: auto; /* Removed fixed height */
+  overflow-y: auto; /* Make it scrollable */
+  padding-bottom: 2rem; /* Add padding at the bottom */
+  margin: 2rem;
+}
+
+.upperSideTop {
+  /* The lines below is making the sidebar not flexible*/
+  /* display: flex;
+  position: fixed;
+  align-items: center;
+  margin-bottom: 2.5rem; */
+
+  /* Below is newly added to make the left side bar flexible */
+  position: relative; /* Removed fixed positioning */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Adjust as per your design */
+  margin-bottom: 2rem;
+}
+
+.upperSideBottom {
+  /* The lines below is making the sidebar not flexible*/
+  /* position:fixed;
+  top: 150px;
+  bottom: 70%;  */
+
+  /* Below is newly added to make the left side bar flexible */
+  position: relative; /* Removed fixed positioning */
+  top: auto; /* Removed fixed top positioning */
+  bottom: auto; /* Removed fixed bottom positioning */
+}
+
+.upperSideBottom button {
+  display: block;
+}
+
+.addBtn {
+  height: 2rem;
+  padding-right: 1rem;
+}
+
+.midBtn {
+  /* The lines below is making the sidebar not flexible*/
+  /* background: #5A4BFF;
+  border: none;
+  color: white;
+  padding: 1.5rem;
+  font-size: 1.5rem;
+  width: 25rem;
+  display: flex;
+  position: fixed; 
+  top: 80px; 
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 3rem;
+  border-radius: 0.5rem; */
+
+  /* Below is newly added to make the left side bar flexible */
+  background: #5A4BFF;
+  border: none;
+  color: white;
+  padding: 1.5rem;
+  font-size: 1.5rem;
+  width: 100%; /* Make button width responsive */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
+  border-radius: 0.5rem;
+}
+
+.query {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  color: rgba(222,222,222,1);
+  padding: 1.5rem;
+  width:25rem;
+  margin: 1rem auto;
+  border-radius: 0.5rem;
+  border: 1px solid rgb(98,98,98,1);
+}
+
+.query>img {
+  margin-right: 2rem;
+  object-fit: cover;
+  height: 1.75rem;
+}
+
+.lowerSide {
+  position: fixed;
+  top: 70%;
+  padding:2rem;
+}
+
+.listItems {
+  margin: 0.75rem;
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+}
+
+.listItemsImg {
+  margin: 1rem;
+  padding-right: 1rem;
+}
+
+.listItems:nth-child(1) > .listItemsImg {
+  margin-right: 0.5rem;
+}
+
+.listItems:nth-child(3) > .listItemsImg {
+  margin-right: 0.75rem;
+}
+
+.main {
+  /* The lines below is making the sidebar not flexible*/
+  /* min-height: calc(100vh - 14rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 6rem 10rem;
+  margin-bottom: 0; */
+
+  /* Below is newly added to make the left side bar flexible */
+  flex: 1; /* Takes up remaining space */
+  overflow-y: auto;
+  margin-left: 7%; /* Give space for the sidebar */
+  max-width: 70%; /* Ensures the main doesn't exceed 70% */
+}
+
+.chats {
+  overflow: hidden;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  width: 100%;
+  max-width: 70rem;
+  height: calc(100vh -17rem);
+}
+
+.chats::-webkit-scrollbar {
+  width: 0; /* Set the width to zero */
+}
+
+.chat {
+  margin: 1rem;
+  padding: 2rem 3rem;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  text-align: justify;
+}
+
+.chatImg {
+  object-fit: cover;
+  width: 3.5rem;
+  margin-right: 2rem;
+  border-radius: 0.5rem;
+}
+
+.bot {
+  background: rgba(28,30,58,1);
+  width: fit-content;
+  border-radius: 0.5rem;
+}
+
+.chatFooter {
+  margin-top: auto;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.inp {
+  padding: 0.5rem;
+  background: rgba(28,30,58,1);
+  display: flex;
+  align-items: center;
+  border-radius: 0.5rem;
+  /* width: 68rem; */
+  width: 80%;
+}
+
+.inp>input {
+  width: calc(100% - 3rem);
+  outline: none;
+  padding: 1.25rem;
+  color: white;
+}
+
+.inp>input, .send {
+  background: transparent;
+  border:none;
+}
+
+.chatFooter>p {
+  margin: 2rem 0;
+}
+
+.txt {
+  line-height: 2.4rem;
+  color: rgba(222,222,222,1)
+}
